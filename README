@@ -1,0 +1,8 @@
+Howto:
+- Build:
+  docker build -t opengrok_source .
+- Run:
+  docker run -d -e STASH_USERNAME="<USERNAME>" -e STASH_PASSWORD='<PASSWORD>' -e STASH_HOSTNAME="<HOSTNAME>" -e STASH_PORT="<PORT>" --name stash_repos_data opengrok_source
+  docker run --volumes-from stash_repos_data -d -p 8080:8080 --name opengrok_frontend itszero/opengrok
+
+  Then goto http://127.0.0.1:8080/source and browse your data  
